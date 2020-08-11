@@ -10,8 +10,8 @@
     <div class="card-body">
       <form
         class="form-horizontal form-material"
+        (submit)="login()"
         id="loginform"
-        action="index.html"
       >
         <a href="javascript:void(0)" class="text-center db"
           ><img src="../assets/images/logo-icon.png" alt="Home" /><br /><img
@@ -97,7 +97,7 @@
           </div>
         </div>
       </form>
-      <form class="form-horizontal" id="recoverform" action="index.html">
+      <form class="form-horizontal" id="recoverform">
         <div class="form-group">
           <div class="col-xs-12">
             <h3>Recover Password</h3>
