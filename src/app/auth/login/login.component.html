@@ -4,13 +4,15 @@
 <section
   id="wrapper"
   class="login-register login-sidebar"
-  style="background-image: url(../assets/images/background/login-register.jpg);"
+  style="background-image: url(../assets/images/background/login-register.jpg)"
 >
   <div class="login-box card">
     <div class="card-body">
       <form
         class="form-horizontal form-material"
-        (submit)="login()"
+        autocomplete="off"
+        [formGroup]="loginForm"
+        (ngSubmit)="login()"
         id="loginform"
       >
         <a href="javascript:void(0)" class="text-center db"
@@ -23,8 +25,9 @@
             <input
               class="form-control"
               type="text"
-              required=""
-              placeholder="Username"
+              placeholder="Email"
+              type="email"
+              formControlName="email"
             />
           </div>
         </div>
@@ -33,8 +36,8 @@
             <input
               class="form-control"
               type="password"
-              required=""
               placeholder="Password"
+              formControlName="password"
             />
           </div>
         </div>
@@ -45,6 +48,7 @@
                 id="checkbox-signup"
                 type="checkbox"
                 class="filled-in chk-col-light-blue"
+                formControlName="remember"
               />
               <label for="checkbox-signup"> Remember me </label>
             </div>
@@ -67,31 +71,16 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
-            <div class="social">
-              <a
-                href="javascript:void(0)"
-                class="btn btn-facebook"
-                data-toggle="tooltip"
-                title="Login with Facebook"
-              >
-                <i aria-hidden="true" class="fa fa-facebook"></i>
-              </a>
-              <a
-                href="javascript:void(0)"
-                class="btn btn-googleplus"
-                data-toggle="tooltip"
-                title="Login with Google"
-              >
-                <i aria-hidden="true" class="fa fa-google-plus"></i>
-              </a>
-            </div>
+          <div
+            class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center d-flex align-items-center justify-content-center mb-4"
+          >
+            <div id="my-signin2"></div>
           </div>
         </div>
         <div class="form-group m-b-0">
           <div class="col-sm-12 text-center">
             Don't have an account?
-            <a href="pages-register2.html" class="text-primary m-l-5"
+            <a routerLink="/register" class="text-primary m-l-5"
               ><b>Sign Up</b></a
             >
           </div>
