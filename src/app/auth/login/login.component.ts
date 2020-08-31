@@ -6,7 +6,6 @@ import Swal from 'sweetalert2';
 declare const gapi: any;
 
 import { UsuarioService } from 'src/app/services/usuario.service';
-import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-login',

@@ -7,7 +7,12 @@
   animation-fill-mode: both;
 }
 
-#themecolors .selector ,.cursor{
+#themecolors .selector,
+.cursor {
   cursor: pointer;
 }
 
+.img-avatar {
+  width: 140px;
+  height: 140px;
+}

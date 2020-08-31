@@ -7,7 +7,6 @@ import {
 } from '@angular/router';
 import { UsuarioService } from '../services/usuario.service';
 import { tap } from 'rxjs/operators';
-import { ThrowStmt } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root',
