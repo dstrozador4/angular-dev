@@ -16,11 +16,11 @@ export class Usuario {
   get imagenUrl() {
     //http://localhost:3000/api/upload/usuario/123231
 
-    if (this.imagen.includes('https')) {
+    if (!this.imagen) {
+      return `${base_url}/upload/usuarios/no-image`;
+    } else if (this.imagen.includes('https')) {
       return this.imagen;
-    }
-
-    if (this.imagen) {
+    } else if (this.imagen) {
       return `${base_url}/upload/usuarios/${this.imagen}`;
     } else {
       return `${base_url}/upload/usuarios/no-image`;
