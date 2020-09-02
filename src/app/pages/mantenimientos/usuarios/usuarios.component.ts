@@ -73,9 +73,11 @@ export class UsuariosComponent implements OnInit, OnDestroy {
       return (this.usuarios = this.usuariosTemp);
     }
 
-    this.busquedasService.buscar('usuarios', termino).subscribe((resp) => {
-      this.usuarios = resp;
-    });
+    this.busquedasService
+      .buscar('usuarios', termino)
+      .subscribe((resp: Usuario[]) => {
+        this.usuarios = resp;
+      });
   }
 
   eliminarUsuario(usuario: Usuario) {
@@ -102,13 +104,10 @@ export class UsuariosComponent implements OnInit, OnDestroy {
   }
 
   cambiarRole(usuario: Usuario) {
-    this.usuarioService.guardarUsuario(usuario).subscribe((resp) => {
-      console.log(resp);
-    });
+    this.usuarioService.guardarUsuario(usuario).subscribe((resp) => {});
   }
 
   abrirModal(usuario: Usuario) {
-    console.log(usuario);
     this.modalImagenService.abrirModal('usuarios', usuario.uid, usuario.imagen);
   }
 }
