@@ -74,15 +74,23 @@
           <a
             class="nav-link hidden-sm-down waves-effect waves-dark"
             href="javascript:void(0)"
+            (click)="mostrarBarra()"
             ><i class="ti-search"></i
           ></a>
-          <form class="app-search">
+          <form
+            class="app-search"
+            id="busqueda"
+            (submit)="buscar(txtTermino.value)"
+          >
             <input
               type="text"
               class="form-control"
-              placeholder="Search & enter"
+              placeholder="Buscar médico, hospita, usuario  "
+              #txtTermino
             />
-            <a class="srh-btn"><i class="ti-close"></i></a>
+            <a class="srh-btn" (click)="ocultarBarra()"
+              ><i class="ti-close"></i
+            ></a>
           </form>
         </li>
         <!-- ============================================================== -->

@@ -17,20 +17,18 @@ import { Subscription } from 'rxjs';
   templateUrl: './medico.component.html',
   styles: [],
 })
-export class MedicoComponent implements OnInit, OnDestroy {
+export class MedicoComponent implements OnInit {
   public medicoFrom: FormGroup;
   public hospitales: Hospital[] = [];
   public hospitalSeleccionado: Hospital;
   public medicoSeleccionado: Medico;
-  private imgSubs: Subscription;
 
   constructor(
     private fb: FormBuilder,
     private hospitalService: HospitalService,
     private medicoService: MedicoService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private modalImagenService: ModalImagenService
+    private activatedRoute: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -49,13 +47,6 @@ export class MedicoComponent implements OnInit, OnDestroy {
         (h) => h._id === hospitalId
       );
     });
-    this.imgSubs = this.modalImagenService.nuevaImagen
-      .pipe(delay(100))
-      .subscribe((img) => this.cargarMedico(this.medicoSeleccionado._id));
-  }
-
-  ngOnDestroy(): void {
-    this.imgSubs.unsubscribe();
   }
 
   cargarMedico(id: string) {
@@ -88,10 +79,6 @@ export class MedicoComponent implements OnInit, OnDestroy {
       .subscribe((hospitales: Hospital[]) => {
         this.hospitales = hospitales;
       });
-  }
-
-  abrirModal(medico: Medico) {
-    this.modalImagenService.abrirModal('medicos', medico._id, medico.imagen);
   }
 
   guardarMedico() {
